@@ -310,7 +310,7 @@ If the partial order relation $R$ is understood from context, we can write $x<y$
 With both partial and linear orders, if $a<b$, then $b\not< a$. To see why, note that if $a<b$ and $b<a$ were both simultaneously true, the transitivity of $<$ would imply that $a<a$, contradicting the assumption that $<$ is anti-reflexive. A partial order also allows for \emph{incomparable} elements, where both $a\not< b$ and $b\not< a$. This cannot occur in a linear order.
 
 The linear order on type parameters is built up from three simpler linear orders: on generic parameters, protocol declarations, and associated type declarations. Note that the below algorithms all compute whether $x<y$, $y>x$ or $x=y$ simultaneously.
-\begin{algorithm}[Generic parameter order]\label{generic parameter order} \IndexDefinition{generic parameter order}Takes \index{generic parameter type}generic parameter types \ttgp{d}{i} and \ttgp{D}{I} as input, where that all four of \texttt{d}, \texttt{i}, \texttt{D} and \texttt{I} are non-negative intgers. Returns one of ``$<$'', ``$>$'' or ``$=$'' as output.
+\begin{algorithm}[Generic parameter order]\label{generic parameter order} \IndexDefinition{generic parameter order}Takes \index{generic parameter type}generic parameter types \ttgp{d}{i} and \ttgp{D}{I} as input, where that all four of \texttt{d}, \texttt{i}, \texttt{D} and \texttt{I} are non-negative integers. Returns one of ``$<$'', ``$>$'' or ``$=$'' as output.
 \begin{enumerate}
 \item If $\texttt{d}<\texttt{D}$, return ``$<$''.
 \item If $\texttt{d}>\texttt{D}$, return ``$>$''.
@@ -896,7 +896,7 @@ The generic signature queries from Section~\ref{genericsigqueries} are methods o
 
 \IndexSource{canonical generic signature}
 \apiref{CanGenericSignature}{class}
-The \texttt{CanGenericSignature} class wraps a \texttt{GenericSignatureImpl *} pointer which is known to be canonical. The pointer can be recovered with the \texttt{getPointer()} method. There is an implicit conversion from \texttt{CanGenenericSiganture} to \texttt{GenericSignature}. The \texttt{operator->} forwards method calls to the underlying \texttt{GenericSignatureImpl}.
+The \texttt{CanGenericSignature} class wraps a \texttt{GenericSignatureImpl *} pointer which is known to be canonical. The pointer can be recovered with the \texttt{getPointer()} method. There is an implicit conversion from \texttt{CanGenenericSignature} to \texttt{GenericSignature}. The \texttt{operator->} forwards method calls to the underlying \texttt{GenericSignatureImpl}.
 
 The \texttt{operator==} and \texttt{operator!=} operators are used to test \texttt{CanGenericSignature} for pointer equality. The \texttt{isEqual()} method of \texttt{GenericSignatureImpl} implements canonical equality on arbitrary generic signatures by first canonicalizing both sides, then checking the resulting canonical signatures for pointer equality. Therefore, the following are equivalent:
 \begin{Verbatim}

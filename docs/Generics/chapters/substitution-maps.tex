@@ -367,7 +367,7 @@ The \emph{composition} of the substitution maps $\Sigma_1$ and $\Sigma_2$, denot
 That is, applying the composition of two substitution maps is the same as applying the first substitution map followed by the second. Since $(\texttt{T}\otimes\Sigma_1)\otimes\Sigma_2\in\TypeObj{H}$, we see that $\Sigma_1\otimes\Sigma_2\in\SubMapObj{F}{H}$; the input generic signature of the composition is the input generic signature of the first substitution map, and the output generic signature of the composition is the output generic signature of the second. Substitution map composition can thus be understood as a function between sets:
 \[\SubMapObj{F}{G}\otimes\SubMapObj{G}{H}\longrightarrow\SubMapObj{F}{H}\]
 
-To understand how the composition $\Sigma_1\otimes\Sigma_2$ is actually constructed from $\Sigma_1$ and $\Sigma_2$ in the implementation, we decompose $\Sigma_1$ by applying it to each generic parameter and conformance requirment of the generic signature $F$:
+To understand how the composition $\Sigma_1\otimes\Sigma_2$ is actually constructed from $\Sigma_1$ and $\Sigma_2$ in the implementation, we decompose $\Sigma_1$ by applying it to each generic parameter and conformance requirement of the generic signature $F$:
 \[\Sigma_1 := \SubstMapLongC{
 \SubstType{\ttgp{0}{0}}{$\ttgp{0}{0}\otimes\Sigma_1$}\\
 \ldots
