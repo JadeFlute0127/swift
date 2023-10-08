@@ -1622,6 +1622,10 @@ struct Arguments;
 class FunctionTest;
 } // namespace swift::test
 
+struct BridgedFunctionTest {
+  swift::test::FunctionTest *_Nonnull test;
+};
+
 struct BridgedTestArguments {
   swift::test::Arguments *_Nonnull arguments;
 
@@ -1653,14 +1657,18 @@ struct BridgedTestArguments {
   BridgedFunction takeFunction() const;
 };
 
-struct BridgedTestContext {
+struct BridgedSwiftPassInvocation {
   swift::SwiftPassInvocation *_Nonnull invocation;
 };
 
-typedef void (*_Nonnull BridgedFunctionTestThunk)(BridgedFunction,
-                                                  BridgedTestArguments,
-                                                  BridgedTestContext);
-void registerFunctionTest(llvm::StringRef, BridgedFunctionTestThunk thunk);
+using SwiftNativeFunctionTestThunk =
+    void (*_Nonnull)(void *_Nonnull, BridgedFunction, BridgedTestArguments,
+                     BridgedSwiftPassInvocation);
+
+void registerFunctionTestThunk(SwiftNativeFunctionTestThunk);
+
+void registerFunctionTest(llvm::StringRef,
+                          void *_Nonnull nativeSwiftInvocation);
 
 SWIFT_END_NULLABILITY_ANNOTATIONS
 
